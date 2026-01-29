@@ -20,6 +20,8 @@ public:
 
 
     std::vector<double> get_coeffs() const;
+
+    double get_r2_score(const Matrix& X, const std::vector<double>& y) const ;
 };
 
 #endif

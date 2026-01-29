@@ -73,7 +73,7 @@ int main() {
         std::cout << "Loading data from data/data.csv..." << std::endl;
         
         // 1. Load Data
-        auto [X, y] = load_data("data/data.csv"); // C++17 Structured Binding
+        auto [X, y] = load_data("data/data.csv");
         
         std::cout << "Data Loaded." << std::endl;
         std::cout << "Samples: " << X.get_rows() << std::endl;
@@ -91,13 +91,10 @@ int main() {
         std::chrono::duration<double> diff = end - start;
         std::cout << "Training complete in " << diff.count() << " s" << std::endl;
 
-        // 3. Show First 5 Coefficients
-        std::cout << "First 5 Coefficients (Beta): ";
-        std::vector<double> coeffs = model.get_coeffs();
-        for (size_t i = 0; i < std::min(coeffs.size(), (size_t)5); ++i) {
-            std::cout << coeffs[i] << " ";
-        }
-        std::cout << std::endl;
+        // 3. Check R^2 score : 
+        double r2 = model.get_r2_score(X, y);
+        std::cout << "R² Score on training data: " << r2 << std::endl;
+
 
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;

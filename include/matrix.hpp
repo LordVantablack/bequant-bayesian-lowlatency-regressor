@@ -25,7 +25,7 @@ public:
     Matrix transpose() const;
     Matrix mat_mul(const Matrix& B) const;
     std::vector<double> vec_mul(const std::vector<double>& vec) const;
-    
+    double subtract(const Matrix& B) const;
  
     void cholesky_inplace();
     void cholesky_solve(std::vector<double>& b) const;

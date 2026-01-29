@@ -94,3 +94,8 @@ void Matrix::cholesky_solve(std::vector<double>& b) const {
         b[i] = sum / (*this)(i, i);
     }
 }
+
+
+
+
+
